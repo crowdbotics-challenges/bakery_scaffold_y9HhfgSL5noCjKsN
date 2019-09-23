@@ -124,7 +124,7 @@ class AssessmentTestCases(unittest.TestCase):
             zip_elem = None
 
         email_elem.send_keys("assessment@test.com.br")
-        cardnum_elem.send_keys("4242424242424242")
+        cardnum_elem.send_keys("5555555555554444")
         cardexp_elem.send_keys("0439")
         cardcvc_elem.send_keys("424")
         cardname_elem.send_keys("Selenium Test WebDriver")
