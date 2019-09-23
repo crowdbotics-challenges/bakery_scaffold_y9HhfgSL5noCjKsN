@@ -128,7 +128,7 @@ class AssessmentTestCases(unittest.TestCase):
         card_data = "5555555555554444"
         cardnum_elem.clear()
         cardnum_elem.send_keys(card_data)
-        self.driver.execute_script("arguments[0].value = '{0}';".format(input_data), element)
+        self.driver.execute_script("arguments[0].value = '{0}';".format(card_data), cardnum_elem)
 
         cardexp_elem.send_keys("0439")
         cardcvc_elem.send_keys("424")
