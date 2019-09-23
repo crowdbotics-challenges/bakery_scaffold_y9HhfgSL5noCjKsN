@@ -53,7 +53,7 @@ class TestAcceptanceStripe(unittest.TestCase):
         res = re.search(pattern, self.dom_str)
         self.assertTrue(hasattr(res, 'group'), msg="No checkout redirection was found.")
 
-    # Check if successUrl redirects to order_success.html
+    # Check if successUrl redirects to order_success.html123
     def test_acceptance_success_url(self):
         pattern = re.compile(
             r"successUrl: \'(http|https)://(.*)/order_success.html\?session_id=\{CHECKOUT_SESSION_ID\}\'",
