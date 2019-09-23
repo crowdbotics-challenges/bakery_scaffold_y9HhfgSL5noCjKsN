@@ -134,11 +134,14 @@ class AssessmentTestCases(unittest.TestCase):
 
         confirm_elem = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "SubmitButton--complete")))
         confirm_elem.click()
-        print(self.driver.get_screenshot_as_base64())
-        session_id_elem = wait.until(
-            EC.presence_of_element_located((By.ID, "sessionId"))
-        )
 
+        try:
+            session_id_elem = wait.until(
+                EC.presence_of_element_located((By.ID, "sessionId"))
+            )
+        except:
+            print(self.driver.get_screenshot_as_base64())
+                        
         self.assertIn("order_success.html", self.driver.current_url)
         self.assertTrue(session_id_elem.text)
 
