@@ -1,6 +1,7 @@
 import os
 import re
 import unittest
+import time
 
 import selenium
 from selenium import webdriver
@@ -126,7 +127,7 @@ class AssessmentTestCases(unittest.TestCase):
         email_elem.send_keys("assessment@test.com.br")
         
         cardnum_elem.send_keys("555555555555")
-        wait()
+        time.sleep(2)
         cardnum_elem.send_keys("4444")
 
         cardexp_elem.send_keys("0439")
