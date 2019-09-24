@@ -53,7 +53,7 @@ class TestAcceptanceStripe(unittest.TestCase):
         res = re.search(pattern, self.dom_str)
         self.assertTrue(hasattr(res, 'group'), msg="No checkout redirection was found.")
 
-    # Check if successUrl redirects to order_success.html123
+    # Check if successUrl redirects to order_success.html
     def test_acceptance_success_url(self):
         pattern = re.compile(
             r"successUrl: \'(http|https)://(.*)/order_success.html\?session_id=\{CHECKOUT_SESSION_ID\}\'",
@@ -106,7 +106,7 @@ class AssessmentTestCases(unittest.TestCase):
         self
     ):
         self.driver.get(self._get_url())
-        wait = WebDriverWait(self.driver, 10)
+        wait = WebDriverWait(self.driver, 20)
 
         elem = wait.until(EC.presence_of_element_located((By.ID, self._get_button_id())))
         elem.click()
@@ -124,11 +124,7 @@ class AssessmentTestCases(unittest.TestCase):
             zip_elem = None
 
         email_elem.send_keys("assessment@test.com.br")
-        
-        cardnum_elem.send_keys("555555555555")
-        cardnum_elem.click()
-        cardnum_elem.send_keys("4444")
-
+        cardnum_elem.send_keys("4242424242424242")
         cardexp_elem.send_keys("0439")
         cardcvc_elem.send_keys("424")
         cardname_elem.send_keys("Selenium Test WebDriver")
@@ -142,12 +138,11 @@ class AssessmentTestCases(unittest.TestCase):
         session_id_elem = wait.until(
             EC.presence_of_element_located((By.ID, "sessionId"))
         )
-                        
+
         self.assertIn("order_success.html", self.driver.current_url)
         self.assertTrue(session_id_elem.text)
 
     def tearDown(self):
-        print(self.driver.get_screenshot_as_base64())
         self.driver.close()
 
 
