@@ -106,7 +106,7 @@ class AssessmentTestCases(unittest.TestCase):
         self
     ):
         self.driver.get(self._get_url())
-        wait = WebDriverWait(self.driver, 20)
+        wait = WebDriverWait(self.driver, 10)
 
         elem = wait.until(EC.presence_of_element_located((By.ID, self._get_button_id())))
         elem.click()
@@ -125,10 +125,9 @@ class AssessmentTestCases(unittest.TestCase):
 
         email_elem.send_keys("assessment@test.com.br")
         
-        card_data = "5555555555554444"
-        cardnum_elem.clear()
-        cardnum_elem.send_keys(card_data)
-        self.driver.execute_script("arguments[0].value = '{0}';".format(card_data), cardnum_elem)
+        cardnum_elem.send_keys("555555555555")
+        wait()
+        cardnum_elem.send_keys("4444")
 
         cardexp_elem.send_keys("0439")
         cardcvc_elem.send_keys("424")
