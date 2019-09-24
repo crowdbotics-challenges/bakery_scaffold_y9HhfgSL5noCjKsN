@@ -127,7 +127,7 @@ class AssessmentTestCases(unittest.TestCase):
         email_elem.send_keys("assessment@test.com.br")
         
         cardnum_elem.send_keys("555555555555")
-        time.sleep(2)
+        time.sleep(5)
         cardnum_elem.send_keys("4444")
 
         cardexp_elem.send_keys("0439")
